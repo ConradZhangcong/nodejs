@@ -25,22 +25,25 @@
 > * `Buffer` `process` `console`
 > * `timer`
 
-### 1. 制作一份待办事宜 [Todo 列表](https://www.zybuluo.com/mdeditor?url=https://www.zybuluo.com/static/editor/md-help.markdown#13-待办事宜-todo-列表)
+### API
 
-- [ ] 支持以 PDF 格式导出文稿
-- [ ] 改进 Cmd 渲染算法，使用局部渲染技术提高渲染效率
-- [x] 新增 Todo 列表功能
-- [x] 修复 LaTex 公式渲染问题
-- [x] 新增 LaTex 公式编号功能
+> * `path` 和路径有关的一切
+> * `Buffer` `process` `console`
+> * `timer`
 
-### 3. 高亮一段代码[^code]
+### ./
 
-```python
-@requires_authorization
-class SomeClass:
-    pass
+> * 在 `require` 方法中总是相对当前文件所在文件夹
+> * 在其他地方和 `process.cwd()` 一样 相对于node启动文件夹
 
-if __name__ == '__main__':
-    # A comment
-    print 'hello world'
+### Buffer
+
+> * `Buffer` 用于处理二进制数据流
+> * 实例类似整数数组,大小固定
+> * C++代码在V8堆外分配物理内存
+
+### 高亮一段代码
+
+```javascript
+
 ```
