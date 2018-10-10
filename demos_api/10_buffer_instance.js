@@ -7,11 +7,11 @@
  * buf.copy()
  */
 
- const buf = Buffer.from('This is a test!');
- console.log(buf.length);
+const buf = Buffer.from('This is a test!');
+console.log(buf.length);
 
- const buf2 = Buffer.alloc(10);
- buf2[0] = 2;
+const buf2 = Buffer.alloc(10);
+buf2[0] = 2;
 console.log(buf2.length);
 
 console.log(buf);
@@ -19,7 +19,7 @@ console.log(buf.toString());
 
 const buf3 = Buffer.allocUnsafe(10);
 console.log(buf3);
-console.log(buf3.fill(10,2,6));
+console.log(buf3.fill(10, 2, 6));
 
 const buf4 = Buffer.from('test');
 const buf5 = Buffer.from('test');
