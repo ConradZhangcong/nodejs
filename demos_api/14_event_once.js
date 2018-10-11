@@ -12,4 +12,4 @@ ce.once('test', () => {
 
 setInterval(() => {
   ce.emit('test');
-},500)
+}, 500)
