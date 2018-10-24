@@ -7,6 +7,7 @@ const readdir = promisify(fs.readdir);
 const config = require('../config/defaultConfig');
 const mine = require('./mine');
 const compress = require('./compress');
+const range = require('./range');
 
 const tplPath = path.join(__dirname, '../template/dir.tpl')
 const source = fs.readFileSync(tplPath);
@@ -20,8 +21,20 @@ module.exports = async function (req, res, filePath) {
       const contentType = mine(filePath);
       res.statusCode = 200;
       res.setHeader = ("Content-type", contentType);
+      // 范围
+      let rs;
+      const {code, start, end} = range(stats.size, req, res);
+      if (code == 200) {
+        res.statusCode = 200;
+        rs = fs.createReadStream(filePath);
+      } else {
+        res.statusCode = 206;
+        rs = fs.createReadStream(filePath, {
+          start,
+          end
+        });
+      }
       // 压缩
-      let rs = fs.createReadStream(filePath);
       if (filePath.match(config.compress)) {
         rs = compress(rs, req, res);
       }
