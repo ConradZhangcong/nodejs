@@ -1,13 +1,5 @@
 # learn Node.js
 
-------
-
-学习资源:
-
-## [Node.js入门到企业Web开发中的应用(慕课网)](https://coding.imooc.com/class/146.html)
-
-------
-
 ### CommonJs
 
 > * 每一个文件是一个模块,有自己的作用域.
