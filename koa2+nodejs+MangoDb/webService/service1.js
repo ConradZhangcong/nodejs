@@ -2,9 +2,6 @@ const http = require('http');
 const fs = require('fs');
 
 http.createServer(function (req, res) {
-
-    res.writeHead(200, {"Content-Type": "text/html;charset='utf-8'"});
-
     let pathname = req.url;
     //默认加载首页
     if (pathname === '/') {
@@ -12,20 +9,16 @@ http.createServer(function (req, res) {
     }
     //过滤请求
     if (pathname !== '/favicon.ico') {
-        console.log(pathname);
-        fs.readFile('static/' + pathname, (err, res) => {
+        fs.readFile('static/' + pathname, (err, data) => {
             if (err) {
                 console.log('404');
                 return false;
+            } else {
+                res.writeHead(200, {"Content-Type": "text/html;charset='utf-8'"});
+                res.write(data);
+                res.end();
             }
-
-            res.end();
         });
 
     }
-
-
-    res.write('hello nodejs');
-
-    res.end();
 }).listen(8520);
