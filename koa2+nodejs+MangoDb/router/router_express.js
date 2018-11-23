@@ -1,33 +1,26 @@
 const http = require('http');
-const url = require('url');
-const G = {};
-
-const app = (req, res) => {
-    let pathname = url.parse(req.url).pathname;
-    if (!pathname.endsWith('/')) pathname = pathname + '/';
-    if (G[pathname]) {
-        G[pathname](req, res); //执行注册的方法
-    } else {
-        res.end('no router');
-    }
-};
-
-// 定义app.get方法
-app.get = (string, callback) => {
-    if (!string.startsWith('/')) string = '/' + string;
-    if (!string.endsWith('/')) string = string + '/';
-    G[string] = callback;
-    console.log(G);
-};
+const ejs = require('ejs');
+const app = require('./model/express_router');
 
 http.createServer(app).listen(8520);
-
-// 注册login这个路由的方法
-app.get('login', (req, res) => {
-    res.end('login');
+app.get('/', (req, res) => {
+    let msg = '这是数据库的数据';
+    ejs.renderFile('views/index.ejs', {
+        msg: msg
+    }, (err, data) => {
+        res.send(data);
+    });
 });
-
-app.get('register', (req, res) => {
-    res.end('register');
+//登录页面
+app.get('/login', (req, res) => {
+    ejs.renderFile('views/form.ejs', {}, (err, data) => {
+        res.send(data);
+    });
 });
-
+app.post('/dologin', (req, res) => {
+    console.log(3);
+    res.send("<script>alert('登陆成功');history.back();</script>")
+});
+app.get('/register', (req, res) => {
+    res.send('register');
+});
