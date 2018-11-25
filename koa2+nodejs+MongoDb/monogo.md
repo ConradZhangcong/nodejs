@@ -54,6 +54,7 @@ $or:[{key: xx},{key: yy}] 或者
 删除表(collections) db.collection.drop()
 删除当前数据库 db.dropDatabase()
 删除数据 db.collection.remove({key:value})
+删除一条数据 db.collection.remove({key:value},{justOne:true})
 ```
 
 > 改
@@ -63,3 +64,15 @@ $or:[{key: xx},{key: yy}] 或者
 (不加$set:表示完全替换)
 修改多条 db.collection.update({key:value},{$set:{key:value}},{multi:true})
 ```
+
+> 索引
+
+```
+设置索引 db.collection.ensureIndex({key:1})
+唯一索引,db.collection.ensureIndex({key:1},{"unique":true})
+查询索引 db.collection.getIndexes()
+删除索引 db.collection.dropIndex({key:1})
+
+```
+
+> explain executionStats 查询具体的执行 .explain("executionStats")
