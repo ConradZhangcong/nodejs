@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<h1>新闻页</h1>
+<h2>{{list.name}}</h2>
+{{@list.h}}
+
+{{if num > 20}}<strong>大于20</strong>{{else}}<strong>小于20</strong>{{/if}}
+
+
+<ul>
+    {{each list.data}}
+    <li>{{$index}}--{{$value}}</li>
+    {{/each}}
+</ul>
+
+{{include 'public/footer.html'}}
+</body>
+</html>
