@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>修改用户</h2>
+<form action="/doEdit" method="post">
+    <input type="hidden" name="id" value="{{@detail._id}}">
+    用户名: <input type="text" name="username" value="{{detail.username}}"><br>
+    年龄: <input type="text" name="age" value="{{detail.age}}"><br>
+    性别: <input type="text" name="sex" value="{{detail.sex}}"><br>
+    <input type="submit" value="提交">
+</form>
+</body>
+</html>
