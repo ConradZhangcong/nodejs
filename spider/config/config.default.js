@@ -4,18 +4,20 @@ module.exports = appInfo => {
   const config = exports = {};
 
   // use for cookie sign key, should change to your own and keep security
-  config.keys = appInfo.name + '_1543928896767_4790';
+  config.keys = appInfo.name + '_1544107542729_8060';
 
   // add your config here
   config.middleware = [];
 
+  // 配置ejs模板引擎
   config.view = {
     mapping: {
       '.html': 'ejs',
     },
   };
 
-  config.api = 'http://www.baidu.com';
+  // 配置公共的api
+  config.api = 'http://www.phonegap100.com/';
 
   return config;
 };

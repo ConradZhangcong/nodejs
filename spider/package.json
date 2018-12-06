@@ -1,5 +1,5 @@
 {
-  "name": "demo",
+  "name": "spider",
   "version": "1.0.0",
   "description": "",
   "private": true,
@@ -22,9 +22,9 @@
     "node": ">=8.9.0"
   },
   "scripts": {
-    "start": "egg-scripts start --daemon --title=egg-server-demo",
-    "stop": "egg-scripts stop --title=egg-server-demo",
-    "dev": "egg-bin dev",
+    "start": "egg-scripts start --daemon --title=egg-server-spider",
+    "stop": "egg-scripts stop --title=egg-server-spider",
+    "dev": "egg-bin dev --port 8530",
     "debug": "egg-bin debug",
     "test": "npm run lint -- --fix && npm run test-local",
     "test-local": "egg-bin test",
