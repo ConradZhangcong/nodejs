@@ -4,6 +4,13 @@ const Controller = require('egg').Controller;
 
 class NewsController extends Controller {
   async index() {
+    /**
+     * 路由外部重定向
+     */
+    // this.ctx.status = 301; // 改变状态码为301(永久重定向)
+    // this.ctx.redirect('/shop'); // 临时重定向 302
+
+
     let list = await this.service.news.getNewsList();
     let result = this.ctx.cookies.get('userInfo', {
       encrypt: true

@@ -7,12 +7,12 @@ module.exports = appInfo => {
   config.keys = appInfo.name + '_1544107542729_8060';
 
   // add your config here
-  config.middleware = ['printdate', 'forbidip', 'auth', 'compress', 'jsonp', 'adminAuth'];
+  config.middleware = ['printdate', 'forbidip', 'auth', 'compress', 'jsonp'];
 
   // 对后台管理系统的页面进行通用配置
-  config.adminAuth = {
-    match: '/admin'
-  }
+  // config.adminAuth = {
+  //   match: '/admin'
+  // }
 
   config.compress = {
     enable: false,
