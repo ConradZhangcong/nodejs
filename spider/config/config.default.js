@@ -7,7 +7,12 @@ module.exports = appInfo => {
   config.keys = appInfo.name + '_1544107542729_8060';
 
   // add your config here
-  config.middleware = ['printdate', 'forbidip', 'auth', 'compress', 'jsonp'];
+  config.middleware = ['printdate', 'forbidip', 'auth', 'compress', 'jsonp', 'adminAuth'];
+
+  // 对后台管理系统的页面进行通用配置
+  config.adminAuth = {
+    match: '/admin'
+  }
 
   config.compress = {
     enable: false,
@@ -25,7 +30,7 @@ module.exports = appInfo => {
   //配置session
   config.session = {
     key: 'SESSION_ID',
-    maxAge: 100000,
+    maxAge: 30 * 1000 * 60,
     httpOnly: true,
     encrypt: true,
     renew: true
