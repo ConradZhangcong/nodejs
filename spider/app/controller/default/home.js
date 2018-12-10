@@ -1,8 +1,8 @@
 'use strict';
 
-const Controller = require('egg').Controller;
+const BaseController = require('../../core/base');
 
-class HomeController extends Controller {
+class HomeController extends BaseController {
   async index() {
 
     // 调用extend里面扩展的application
@@ -10,7 +10,7 @@ class HomeController extends Controller {
 
     // 调用extend里面扩展的ctx
     this.ctx.session.host = this.ctx.getHost()
-    
+
     // 设置session的过期时间
     // this.ctx.session.maxAge = 10000;
 
@@ -40,9 +40,10 @@ class HomeController extends Controller {
       encrypt: true
     });
 
-    await this.ctx.render('loginSuccess', {
-      userInfo: params
-    });
+    await this.success('/');
+    // await this.ctx.render('loginSuccess', {
+    //   userInfo: params
+    // });
   }
 }
 

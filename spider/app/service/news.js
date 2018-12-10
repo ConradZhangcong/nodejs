@@ -17,6 +17,14 @@ class NewsService extends Service {
     let data = JSON.parse(response.data); // 把buffer类型转换成对象
     return data.result;
   }
+
+  async getStaticNews() {
+    const result = {
+      name: 'conrad',
+      age: 20
+    }
+    return result;
+  }
 }
 
 module.exports = NewsService;
